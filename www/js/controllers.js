@@ -10,7 +10,9 @@ angular.module('starter.controllers', [])
     return retVal + 'vh';
   }
 
-  $scope.updateItems = function() {
+  $scope.updateItems = function(thisTotal) {
+    $rootScope.colorData['total'] = thisTotal;
+
     var items = $rootScope.colorData.items,
       total = $rootScope.colorData.total;
 

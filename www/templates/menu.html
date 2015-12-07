@@ -22,11 +22,11 @@
           <span>Home</span>
         </ion-item>
         <ion-item>
-          <label for="total">
+          <label for="total" ng-init="thisTotal = colorData.total">
             <span>Total items</span>
-            <input id="total" type="tel" ng-model="colorData.total">
+            <input id="total" type="tel" ng-model="thisTotal">
           </label>
-          <button class="" ng-click="updateItems()">Go</button>
+          <button class="" ng-click="updateItems(thisTotal)">Go</button>
         </ion-item>
         <ion-item>
           <label>
@@ -41,7 +41,7 @@
           </label>
         </ion-item>
         <ion-item ng-click="showModal('Background','backgroundColor', null, true)">
-          BG color
+          <span class="pull-left">BG color</span> <span class="color-indicator" style="background-color:rgba({{colorData.backgroundColor.red}}, {{colorData.backgroundColor.green}}, {{colorData.backgroundColor.blue}}, {{colorData.backgroundColor.alpha}});"></span>
         </ion-item>
         <ion-item ng-click="updateEditable()">
           Edit mode is <strong ng-show="editMode">ON</strong><strong ng-hide="editMode">OFF</strong>
