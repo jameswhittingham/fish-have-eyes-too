@@ -1,0 +1,25 @@
+//
+// Variables
+// --------------------------------------------------
+
+//colors
+
+
+/*//fonts
+$font-family-base: 			"GothamBookRegular";
+$font-family-base-xlight:	"GothamXLight";
+$font-family-base-light:	"GothamLight";
+$font-family-base-medium:	"GothamMedium";
+$font-family-base-bold:		"GothamBold";
+$font-family-secondary: 	'Open Sans', sans-serif;*/
+
+
+//breakpoints
+$grid-gutter-width: 		20px;
+$container-large-desktop:   (1188px + $grid-gutter-width) !default;
+$container-lg:              $container-large-desktop !default;
+
+$screen-xs: 				320px !default;
+$screen-sm: 				376px !default;
+$screen-md: 				481px !default;
+$screen-lg: 				769px !default;

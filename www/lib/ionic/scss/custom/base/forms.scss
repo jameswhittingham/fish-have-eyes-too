@@ -1,0 +1,31 @@
+//
+// Forms
+// --------------------------------------------------
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+input[type="number"] {
+	float: left;
+	width: 50px;
+}
+
+label {
+	float: left;
+
+	span {
+		float: left;		
+	}
+}
+
+.error-message {
+	display: none;
+	
+	&.error {
+		color: red;
+		display: block;
+		margin-bottom: 20px;
+	}
+}

@@ -1,0 +1,21 @@
+<ion-view view-title="Home" hide-nav-bar="true" cache-view="false">
+  <ion-content style="background-color:rgba({{colorData.backgroundColor.red}}, {{colorData.backgroundColor.green}}, {{colorData.backgroundColor.blue}}, {{colorData.backgroundColor.alpha}});">
+
+	<div class="vertical-center-wrapper">
+		<div class="vertical-center-row">
+			
+			<div class="vertical-center-cell">
+				<div ng-repeat="item in colorData.items" 
+					style="width:{{ 100/colorData.itemsPerRow }}%; height: {{ getHeight(colorData.itemsPerRow, colorData.total) }}; padding: {{ colorData.itemSpacing }}px;" 
+					class="btn-container" 
+					ng-click="showModal('Color item', 'items', $index, editMode)">
+
+					<span class="btn btn-secondary" style="background-color:rgba({{item.red}}, {{item.green}}, {{item.blue}}, {{item.alpha}})" ng-class="{ 'editable' : editMode == true }"></span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+  </ion-content>
+</ion-view>

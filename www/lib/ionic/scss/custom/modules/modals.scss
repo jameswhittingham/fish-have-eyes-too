@@ -1,0 +1,34 @@
+//
+// Modals
+// --------------------------------------------------
+
+.modal {
+	background-color: rgba(0,0,0,0.3);
+	display: none;
+	padding: 10px;
+
+	@media(min-width: $screen-md) {
+		bottom: 0;
+		left: 0;
+		padding: 35px;
+		right: 0;
+		top: 0;
+		width: 100%;
+	}
+
+	&.in {
+		display: block;
+	}
+
+	.modal-dialog {
+		background-color: $body-bg;
+		box-shadow: 0 0 5px rgba(0,0,0,0.3);
+		margin-top: 35%;
+		padding: 20px 10px 0;
+		text-align: center;
+
+		@media(min-width: $screen-md) {
+			padding: 20px 35px 0;
+		}
+	}
+}

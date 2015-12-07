@@ -1,0 +1,14 @@
+//
+// Mixins
+// --------------------------------------------------
+
+// Font sizing using REM
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+@mixin letter-spacing($spacing) {
+	$ls:($spacing/1000);
+	letter-spacing: $ls * 1em;
+}

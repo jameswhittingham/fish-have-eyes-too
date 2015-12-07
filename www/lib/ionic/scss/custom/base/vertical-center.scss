@@ -1,0 +1,25 @@
+//
+// Vertical center
+// --------------------------------------------------
+
+.vertical-center-wrapper {
+	display: table;
+	height: 100%;
+	width:100%;
+
+	&.absolute {
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
+
+	.vertical-center-row {
+		display: table-row;
+	}
+
+	.vertical-center-cell {
+		display: table-cell;
+		vertical-align: middle;
+		overflow-y: auto;
+	}
+}

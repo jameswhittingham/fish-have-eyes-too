@@ -1,56 +1,73 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $localstorage, $rootScope, $state, $window) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+  $rootScope.editMode = false;
 
-  // Form data for the login modal
-  $scope.loginData = {};
+  $scope.getHeight = function(itemsOnRow, total){
+    var rows = total/itemsOnRow,
+      retVal = 100/Math.ceil(rows);
+    return retVal + 'vh';
+  }
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $scope.updateItems = function() {
+    var items = $rootScope.colorData.items,
+      total = $rootScope.colorData.total;
+
+    if (parseInt(total) <= items.length) {
+      items = items.slice(0, total);
+    } else {
+      var dif = parseInt(total) - items.length;
+      for (var i = 0; i < dif; i++) {
+        var item = {id: i, red: 255, green: 255, blue: 255, alpha: 1};
+        items.push(item);
+      }
+    }
+
+    $rootScope.colorData.items = items;
+  };
+
+  $scope.updateEditable = function() {
+    $rootScope.editMode = !$rootScope.editMode;
+  }
+
+  // Create the modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/modal.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
+  $scope.closeModal = function() {
     $scope.modal.hide();
   };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
+  $scope.showModal = function(title, colorObj, ind, show) {
+    if (show == true) {
+      $scope.modalTitle = title;
+      $scope.editableObject = colorObj;
+      $scope.ind = ind;
+      $scope.selectedColor = $scope.colorData[colorObj];
+      if (ind != null) {
+        $scope.selectedColor = $scope.colorData[colorObj][ind];
+      }
+      $scope.modal.show();
+    }
   };
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+  $scope.getNumber = function(num){
+    return new Array(num);
+  }
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
+  $scope.saveColor = function() {
+    var colorObj = $scope.editableObject,
+      ind = $scope.ind;
+    
+    if (ind != null) {
+      $scope.colorData[colorObj][ind] = $scope.selectedColor;
+    } else {
+      $scope.colorData[colorObj] = $scope.selectedColor;
+    }
+  }
+
 })
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});

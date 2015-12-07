@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">{{ modalTitle }} - Choose Color</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeModal()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+    <form ng-submit="saveColor()">
+      <div class="list">
+        <label class="item item-input" for="red">
+          <span class="input-label">Red</span>
+          <input id="red" type="tel" ng-model="selectedColor.red">
+        </label>
+        <label class="item item-input" for="green">
+          <span class="input-label">Green</span>
+          <input id="green" type="tel" ng-model="selectedColor.green">
+        </label>
+        <label class="item item-input" for="blue">
+          <span class="input-label">Blue</span>
+          <input id="blue" type="tel" ng-model="selectedColor.blue">
+        </label>
+        <label class="item item-input" for="alpha">
+          <span class="input-label">Alpha</span>
+          <input id="alpha" type="tel" ng-model="selectedColor.alpha">
+        </label>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,28 @@
+//
+// Responsive Embed
+// --------------------------------------------------
+
+.embed-responsive {
+  // Modifier class for 16:9 aspect ratio
+  &.embed-responsive-1by1 {
+    padding-bottom: 100%;
+  }
+}
+
+.frame-wrapper {
+	width: 100%;  
+	padding: 0; 
+	overflow: hidden; 
+
+	iframe {
+		width: 975px; 
+		height: 8040px; 
+
+	    -webkit-transform: scale(0.37);
+	    -webkit-transform-origin: 0 0;
+
+	    @media(min-width: $screen-md) {
+	    	-webkit-transform: scale(0.7);
+	    }
+	}
+}
