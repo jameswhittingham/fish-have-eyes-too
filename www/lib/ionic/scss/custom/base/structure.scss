@@ -5,3 +5,13 @@
 .scroll {
 	height: 100vh;
 }
+
+.item-input {
+	border-right: 0;
+	width: 100%;
+
+	.input-label {
+		margin-left: 30%;
+		width: 20%;
+	}
+}

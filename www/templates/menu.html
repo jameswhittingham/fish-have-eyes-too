@@ -3,7 +3,7 @@
     <ion-nav-bar class="bar-stable">
 
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        <button class="button button-icon button-clear icon-angle-left" menu-toggle="left">
         </button>
       </ion-nav-buttons>
 
@@ -13,20 +13,21 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title icon-grooveshark">Fish have eyes too!</h1>
+    </ion-header-bar>
+
     <ion-content>
       <ion-list>
-        <ion-item>
-          Fish have eyes too!
-        </ion-item>
         <ion-item menu-close href="#/app/home">
-          <span>Home</span>
+          <span class="btn btn-link icon-angle-right">Home</span>
         </ion-item>
         <ion-item>
           <label for="total" ng-init="thisTotal = colorData.total">
             <span>Total items</span>
             <input id="total" type="tel" ng-model="thisTotal">
           </label>
-          <button class="" ng-click="updateItems(thisTotal)">Go</button>
+          <button class="btn btn-primary icon-plus pull-right" ng-click="updateItems(thisTotal)">Load</button>
         </ion-item>
         <ion-item>
           <label>
@@ -37,17 +38,18 @@
         <ion-item>
           <label>
             <span>Item spacing</span>
-            <input type="tel" ng-model="colorData.itemSpacing">
+            <input type="tel" ng-model="colorData.itemSpacing">px
           </label>
         </ion-item>
         <ion-item ng-click="showModal('Background','backgroundColor', null, true)">
           <span class="pull-left">BG color</span> <span class="color-indicator" style="background-color:rgba({{colorData.backgroundColor.red}}, {{colorData.backgroundColor.green}}, {{colorData.backgroundColor.blue}}, {{colorData.backgroundColor.alpha}});"></span>
         </ion-item>
-        <ion-item ng-click="updateEditable()">
-          Edit mode is <strong ng-show="editMode">ON</strong><strong ng-hide="editMode">OFF</strong>
+        <ion-item >
+          <ion-toggle toggle-class="toggle-calm" ng-click="updateEditable()">Edit mode</ion-toggle>
+          <!--<strong ng-show="editMode">ON</strong><strong ng-hide="editMode">OFF</strong>-->
         </ion-item>
         <ion-item menu-close href="#/app/results">
-          Results
+          <span class="btn btn-link icon-angle-right">Results</span>
         </ion-item>
 
       </ion-list>

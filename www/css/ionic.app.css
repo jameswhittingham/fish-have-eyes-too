@@ -13525,17 +13525,143 @@ button.close {
 .scroll {
   height: 100vh; }
 
+.item-input {
+  border-right: 0;
+  width: 100%; }
+  .item-input .input-label {
+    margin-left: 30%;
+    width: 20%; }
+
+body {
+  font-weight: 300; }
+
+h1:before {
+  font-size: 30px;
+  left: 0;
+  position: absolute;
+  top: 7px; }
+
+.table-content {
+  padding: 20px; }
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("../lib/ionic/fonts/icomoon/icomoon.eot?-5wgm69");
+  src: url("../lib/ionic/fonts/icomoon/icomoon.eot?#iefix-5wgm69") format("embedded-opentype"), url("../lib/ionic/fonts/icomoon/icomoon.ttf?-5wgm69") format("truetype"), url("../lib/ionic/fonts/icomoon/icomoon.woff?-5wgm69") format("woff"), url("../lib/ionic/fonts/icomoon/icomoon.svg?-5wgm69#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/*
+// Open Sans
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+// Gotham Font
+@font-face {
+    font-family: 'GothamBookRegular';
+    src: url('../lib/ionic/fonts/gotham/gotham-book.eot');
+    src: url('../lib/ionic/fonts/gotham/gotham-book.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/gotham/gotham-book.woff') format('woff'),
+         url('../lib/ionic/fonts/gotham/gotham-book.ttf') format('truetype'),
+         url('../lib/ionic/fonts/gotham/gotham-book.svg#GothamBookRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'GothamXLight';
+    src: url('../lib/ionic/fonts/gotham/gotham-xlight.eot');
+    src: url('../lib/ionic/fonts/gotham/gotham-xlight.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/gotham/gotham-xlight.woff') format('woff'),
+         url('../lib/ionic/fonts/gotham/gotham-xlight.ttf') format('truetype'),
+         url('../lib/ionic/fonts/gotham/gotham-xlight.svg#GothamXLight') format('svg');
+}
+
+@font-face {
+    font-family: 'GothamLight';
+    src: url('../lib/ionic/fonts/gotham/gotham-light.eot');
+    src: url('../lib/ionic/fonts/gotham/gotham-light.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/gotham/gotham-light.woff') format('woff'),
+         url('../lib/ionic/fonts/gotham/gotham-light.ttf') format('truetype'),
+         url('../lib/ionic/fonts/gotham/gotham-light.svg#GothamLight') format('svg');
+}
+
+@font-face {
+    font-family: 'GothamMedium';
+    src: url('../lib/ionic/fonts/gotham/gotham-medium.eot');
+    src: url('../lib/ionic/fonts/gotham/gotham-medium.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/gotham/gotham-medium.woff') format('woff'),
+         url('../lib/ionic/fonts/gotham/gotham-medium.ttf') format('truetype'),
+         url('../lib/ionic/fonts/gotham/gotham-medium.svg#GothamMedium') format('svg');
+}
+
+@font-face {
+    font-family: 'GothamBold';
+    src: url('../lib/ionic/fonts/gotham/gotham-bold.eot');
+    src: url('../lib/ionic/fonts/gotham/gotham-bold.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/gotham/gotham-bold.woff') format('woff'),
+         url('../lib/ionic/fonts/gotham/gotham-bold.ttf') format('truetype'),
+         url('../lib/ionic/fonts/gotham/gotham-bold.svg#GothamBold') format('svg');
+}*/
+[class^="icon-"]:before, [class^="icon-"]:after,
+[class*=" icon-"]:before,
+[class*=" icon-"]:after {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-angle-right:after {
+  content: "\e900"; }
+
+.icon-chevron-right:after {
+  content: "\e901"; }
+
+.icon-angle-left:before {
+  content: "\e902"; }
+
+.icon-chevron-left:before {
+  content: "\e903"; }
+
+.icon-grooveshark:before {
+  content: "\e904"; }
+
+.icon-home3:before {
+  content: "\e905"; }
+
+.icon-quill:before {
+  content: "\e906"; }
+
+.icon-rocket:before {
+  content: "\e907"; }
+
+.icon-hipster:before {
+  content: "\e908"; }
+
+.icon-plus:after {
+  content: "\e909"; }
+
 input[type="text"],
 input[type="password"],
 input[type="tel"],
 input[type="email"],
 input[type="date"],
 input[type="number"] {
+  font-size: 20px;
+  font-weight: bold;
   float: left;
-  width: 50px; }
+  margin: -7px 0 -7px 10px;
+  width: 30px; }
 
 label {
-  float: left; }
+  float: left;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 0; }
   label span {
     float: left; }
 
@@ -13546,6 +13672,24 @@ label {
     display: block;
     margin-bottom: 20px; }
 
+.item-toggle {
+  border: 0;
+  padding: 0; }
+  .item-toggle .toggle {
+    top: 0; }
+    .item-toggle .toggle .track {
+      border: solid 1px #AFAFAF;
+      box-shadow: none;
+      height: 22px; }
+      .item-toggle .toggle .track .handle {
+        border: solid 1px #AFAFAF;
+        box-shadow: none;
+        height: 18px;
+        width: 18px; }
+
+.toggle input:checked + .track .handle {
+  transform: translate3d(29px, 0, 0); }
+
 .btn {
   box-shadow: none;
   text-decoration: none !important;
@@ -13555,20 +13699,51 @@ label {
   .btn:focus, .btn:active {
     box-shadow: none !important;
     outline: none !important; }
+  .btn.btn-primary {
+    color: #AFAFAF;
+    font-size: 12px;
+    background-color: transparent;
+    border: solid 1px #AFAFAF;
+    border-radius: 0;
+    padding: 2px 10px; }
+    .btn.btn-primary:after {
+      font-size: 8px;
+      margin: 0 0 0 5px; }
   .btn.btn-secondary {
     height: 100%;
     position: relative;
     width: 100%; }
     .btn.btn-secondary.editable:before {
-      background-color: green;
+      background-color: #20AF20;
       border-radius: 100%;
       color: #fff;
-      content: "+";
+      content: "\e906";
+      font-family: 'icomoon' !important;
+      font-size: 10px;
       height: 20px;
+      padding: 3px;
       position: absolute;
       right: -10px;
       top: -10px;
       width: 20px; }
+  .btn.btn-link {
+    background-color: transparent;
+    border: 0;
+    margin-top: -5px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 300; }
+    .btn.btn-link:after {
+      display: inline-block;
+      font-size: 20px;
+      height: 10px;
+      line-height: 0;
+      margin: 0 7px -5px;
+      vertical-align: middle; }
+
+.bar-stable .button.button-clear {
+  font-size: 25px;
+  margin-top: -5px; }
 
 .btn-container {
   float: left;

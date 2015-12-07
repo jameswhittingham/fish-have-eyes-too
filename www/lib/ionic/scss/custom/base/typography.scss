@@ -3,172 +3,18 @@
 // --------------------------------------------------
 
 body {
-	font-family: $font-family-base-light;
-	line-height: 19px;
-
-	@include font-size(1.4);
-
-	@media(min-width: $screen-md) {
-		line-height: 28px;
-
-		@include font-size(2.0);
-	}
+	font-weight: 300;
 }
 
-p {
-	margin: 0 0 16px 0;
-
-	&.introduction {
-		font-family: $font-family-base-bold;
-		line-height: 19px;
-		margin: 0 15px 16px;
-
-		@include font-size(1.6);
-
-		@media(min-width: $screen-md) {
-			line-height: 38px;
-
-			@include font-size(3.2);
-		}
-	}
-
-	strong {
-		font-family: $font-family-base-bold;
-	}
+h1 {
+	&:before {
+		font-size: 30px;
+	    left: 0;
+	    position: absolute;
+	    top: 7px;
+    }
 }
 
-a {
-	color: $text-color;
-	text-decoration: underline;
-
-	&:hover {
-		color: $text-color;
-		text-decoration: underline;
-	}
-}
-
-.break-word {
-	word-break: break-all;
-}
-
-h1,
-h2,
-.bar-header .title {
-	font-family: $font-family-base-bold;
-	line-height: 19px;
-	margin: 0 0 16px 0;
-
-	@include font-size(1.4);
-
-	@media(min-width: $screen-md) {
-		line-height: 28px;
-
-		@include font-size(2.0);
-	}
-}
-
-h1,
-.bar-header .title  {
-	color: $text-color-variant;
-	margin: 20px 0 16px 0;
-	text-transform: uppercase;
-
-	@media(min-width: $screen-md) {
-		margin: 45px 0 16px 0;
-	}
-}
-
-h2 {
-	color: $text-color-variant-1;
-}
-
-h3 {
-	color: $brand-primary;
-	font-family: $font-family-base-bold;
-	margin: 0 0 3px !important;
-	text-transform: uppercase;
-
-	@include font-size(1.2);
-
-	@media(min-width: $screen-md) {
-		@include font-size(2.0);
-	}
-}
-
-big {
-	display: block;
-	font-family: $font-family-base-light;
-	line-height: 30px;
-	margin: 0 0 25px 0;
-	text-transform: uppercase;
-
-	@include font-size(3.0);
-
-	@media(min-width: $screen-md) {
-		line-height: 60px;
-
-		@include font-size(6.0);
-	}
-
-	span {
-		display: block;
-		font-family: $font-family-base-bold;
-	}
-}
-
-small {
-	display: inline-block;
-	font-family: $font-family-base-light;
-	line-height: 17px;
-	margin: 0 0 6px 0; 
-
-	@include font-size(1.2);
-
-	@media(min-width: $screen-md) {
-		line-height: 20px;
-		margin: 0 0 12px 0; 
-
-		@include font-size(1.4);
-	}
-
-	&.alt {
-		color: $brand-secondary-variant;
-		display: block;
-		font-family: $font-family-base-light;
-		margin-bottom: 0;
-	}
-}
-
-blockquote {
-	border: 0;
-	color: $brand-primary;
-	font-family: $font-family-base-bold;
-	line-height: 20px;
-	margin: 0;
-	padding: 0; 
-
-	@include font-size(1.7);
-
-	@media(min-width: $screen-md) {
-		line-height: 40px;
-
-		@include font-size(3.5);
-	}
-
-	hr {
-		border-bottom: solid 2px $brand-primary;
-		margin: 15px 0 0;
-		width: 19px;
-
-		@media(min-width: $screen-md) {
-			border-bottom: solid 4px $brand-primary;
-			margin: 25px 0 0;
-			width: 37px;
-		}
-	}
-}
-
-ul {
-	list-style: disc;
-	padding-left: 16px;
+.table-content {
+	padding: 20px;
 }

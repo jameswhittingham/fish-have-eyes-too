@@ -8,12 +8,18 @@ input[type="tel"],
 input[type="email"],
 input[type="date"],
 input[type="number"] {
+	font-size: 20px;
+	font-weight: bold;
 	float: left;
-	width: 50px;
+	margin: -7px 0 -7px 10px;
+	width: 30px;
 }
 
 label {
 	float: left;
+	font-size: 16px;
+	font-weight: 300;
+	margin-bottom: 0;
 
 	span {
 		float: left;		
@@ -28,4 +34,30 @@ label {
 		display: block;
 		margin-bottom: 20px;
 	}
+}
+
+.item-toggle {
+	border: 0;
+	padding: 0;
+
+	.toggle {
+		top: 0;
+
+		.track {
+			border: solid 1px $color-grey;
+			box-shadow: none;
+			height: 22px;
+
+			.handle {
+				border: solid 1px $color-grey;
+				box-shadow: none;
+				height: 18px;
+				width: 18px;
+			}
+		}
+	}
+}
+
+.toggle input:checked + .track .handle {
+	transform: translate3d(29px, 0, 0);
 }

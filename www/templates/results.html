@@ -1,7 +1,20 @@
 <ion-view view-title="Results">
-  <ion-content>
-    
-    results  
-    
+  <ion-content class="table-content">
+
+	  <table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Color</th>
+	        <th>Count</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr ng-repeat="item in colorData.items">
+	        <td>{{item.red}}, {{item.green}}, {{item.blue}}, {{item.alpha}}</td>
+	        <td>{{item.count}}</td>
+	      </tr>
+	    </tbody>
+	  </table>
+     
   </ion-content>
 </ion-view>

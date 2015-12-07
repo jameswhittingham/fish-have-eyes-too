@@ -57,6 +57,13 @@ angular.module('starter.controllers', [])
     }
   };
 
+  $scope.trackClick = function(trackIt, obj, ind) {
+    if(!trackIt) {
+      var count = $scope.colorData[obj][ind]['count'] || 0;
+      $scope.colorData[obj][ind]['count'] = count + 1;
+    }
+  }
+
   $scope.getNumber = function(num){
     return new Array(num);
   }
