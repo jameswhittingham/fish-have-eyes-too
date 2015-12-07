@@ -21,7 +21,7 @@ angular.module('starter.controllers', [])
     } else {
       var dif = parseInt(total) - items.length;
       for (var i = 0; i < dif; i++) {
-        var item = {id: i, red: 255, green: 255, blue: 255, alpha: 1};
+        var item = {id: i, red: 255, green: 255, blue: 255, alpha: 1, count: 0};
         items.push(item);
       }
     }

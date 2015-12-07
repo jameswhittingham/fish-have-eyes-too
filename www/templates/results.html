@@ -5,13 +5,13 @@
 	    <thead>
 	      <tr>
 	        <th>Color</th>
-	        <th>Count</th>
+	        <th class="text-center">Count</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr ng-repeat="item in colorData.items">
+	      <tr ng-repeat="item in colorData.items | orderBy:'count':'false'">
 	        <td>{{item.red}}, {{item.green}}, {{item.blue}}, {{item.alpha}}</td>
-	        <td>{{item.count}}</td>
+	        <td class="text-center">{{item.count}}</td>
 	      </tr>
 	    </tbody>
 	  </table>

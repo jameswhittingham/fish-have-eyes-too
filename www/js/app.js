@@ -37,7 +37,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
 
     for (var i = 0; i < 12; i++) {
-      var item = {id: i, red: 255, green: 255, blue: 255, alpha: 1};
+      var item = {id: i, red: 255, green: 255, blue: 255, alpha: 1, count: 0};
       $rootScope.colorData.items.push(item);
     } 
   };
