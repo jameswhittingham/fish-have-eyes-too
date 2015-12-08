@@ -39,9 +39,16 @@ angular.module('starter.controllers', [])
   }).then(function(modal) {
     $scope.modal = modal;
   });
+  // Create the modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/modal-2.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal2 = modal;
+  });
 
   $scope.closeModal = function() {
     $scope.modal.hide();
+    $scope.modal2.hide();
   };
 
   $scope.showModal = function(title, colorObj, ind, show) {
@@ -55,6 +62,9 @@ angular.module('starter.controllers', [])
       }
       $scope.modal.show();
     }
+  };
+  $scope.showModal2 = function() {
+    $scope.modal2.show();
   };
 
   $scope.trackClick = function(trackIt, obj, ind) {
@@ -77,6 +87,51 @@ angular.module('starter.controllers', [])
     } else {
       $scope.colorData[colorObj] = $scope.selectedColor;
     }
+  }
+
+  $scope.saveSet = function(setName) {
+    var retData = $localstorage.get("fishHaveEyesData"),
+      id = 0;
+    if (retData) {
+      colorDataArray = JSON.parse(retData);
+      if (colorDataArray.length > 0) {
+        id = colorDataArray[colorDataArray.length-1].id + 1;
+      };
+    } else {
+      colorDataArray = [];
+    }
+
+    var newObj = {
+      'id': id,
+      'name': setName, 
+      'data': $rootScope.colorData
+    }
+    colorDataArray.push(newObj);
+    $localstorage.set("fishHaveEyesData", colorDataArray);
+
+    $rootScope.currentSet = setName;
+
+    $scope.modal2.hide();
+  }
+})
+
+.controller('LoadCtrl', function($scope, $ionicModal, $timeout, $localstorage, $rootScope, $state, $window) {
+  var retData = $localstorage.get('fishHaveEyesData', "");
+
+  if (retData && retData != "null") {
+    $scope.loadData = JSON.parse(retData.toString());
+  }
+
+  $scope.loadSet = function(ind) {
+    $rootScope.colorData = $scope.loadData[ind].data;
+    $rootScope.currentSet = $scope.loadData[ind].name;
+    $rootScope.currentInd = $scope.loadData[ind].id;
+    //$state.go('app.home');
+  }
+
+  $scope.deleteSet = function(ind) {
+    $scope.loadData.splice(ind, 1);
+    $localstorage.set("fishHaveEyesData", $scope.loadData);
   }
 
 })

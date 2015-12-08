@@ -24,25 +24,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   //Set patientdata global root variable
   var retData = $localstorage.get('fishHaveEyesData', "");
 
-  if (retData && retData != "null") {
-    $rootScope.colorData = JSON.parse(retData.toString());
-  } else {
+  //if (retData && retData != "null") {
+  //  $rootScope.colorData = JSON.parse(retData.toString());
+  //} else {
     
     $rootScope.colorData = {
-      total: 12,
+      total: 24,
       itemsPerRow:4,
       itemSpacing: 10,
       items: [],
       backgroundColor: {id: i, red: 0, green: 0, blue: 0, alpha: 0.15}
     }
 
-    for (var i = 0; i < 12; i++) {
-      var item = {id: i, red: 255, green: 255, blue: 255, alpha: 1, count: 0};
+    for (var i = 0; i < 24; i++) {
+      var item = {id: i, red: getRand(255, 1), green: getRand(255, 1), blue: getRand(255, 1), alpha: getRand(100, 100), count: 0};
       $rootScope.colorData.items.push(item);
     } 
-  };
+  //};
 
-
+  function getRand(max, divider) {
+    return (Math.round(Math.random()*max) + 1)/divider;
+  }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -68,6 +70,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         'menuContent': {
           templateUrl: 'templates/results.html',
           controller: 'AppCtrl'
+      }
+    }
+  })
+  .state('app.load', {
+      url: '/load',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/load.html',
+          controller: 'LoadCtrl'
       }
     }
   })

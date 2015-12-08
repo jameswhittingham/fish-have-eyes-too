@@ -1,0 +1,22 @@
+<ion-view view-title="Load Set">
+  <ion-content class="table-content">
+
+	  <table class="table table-striped">
+	    <thead>
+	      <tr>
+	      	<th></th>
+	        <th>Set Name</th>
+	        <th></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr ng-repeat="item in loadData | orderBy:'setName'">
+	      	<td><button class="btn btn-delete" ng-click="deleteSet($index)">-</button></td>
+	        <td>{{item.name}}</td>
+	        <td class="text-center"><button class="btn btn-link icon-angle-right" ng-click="loadSet($index)" menu-toggle="left">Load</button></td>
+	      </tr>
+	    </tbody>
+	  </table>
+     
+  </ion-content>
+</ion-view>

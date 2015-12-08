@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Save Set</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeModal()">&times;</button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="table-content">
+
+    <form ng-submit="saveSet(setName)" class="text-center save-form">
+      <div class="list">
+        <label class="item-input" for="name">
+          <input id="name" type="text" placeholder="Name" required ng-model="setName">
+        </label>
+        <button class="btn btn-primary large" ng-class="{'disabled': !setName}">Save</button>
+        
+      </div>
+    </form>
+
+  </ion-content>
+</ion-modal-view>

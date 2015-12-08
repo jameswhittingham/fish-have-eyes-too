@@ -26,6 +26,11 @@
     		font-size: 8px;
     		margin: 0 0 0 5px;
     	}
+
+    	&.large {
+    		font-size: 16px;
+    		padding: 5px 20px 7px;
+    	}
 	}
 
 	&.btn-secondary {
@@ -54,12 +59,14 @@
 	&.btn-link {
 		background-color: transparent;
 		border: 0;
+		color: $color-grey-variant;
 		margin-top: -5px;
 		padding: 0;
 		font-size: 16px;
 		font-weight: 300;
 
 		&:after {
+			color: $color-grey-variant;
 			display: inline-block;    
 		    font-size: 20px;
 		    height: 10px;
@@ -67,10 +74,30 @@
 		    margin: 0 7px -5px;
 		    vertical-align: middle;
 		}
+
+		&.icon-plus {
+			&:after {
+				font-size: 8px;
+		    	margin: 0 7px -10px;
+			}
+		}
+	}
+
+	&.btn-delete {
+		background-color: #E25D5D;
+		border-radius: 100%;
+		color: $body-bg;
+		content: "-";
+		font-size: 30px;
+		height: 20px;
+		line-height: 0;
+		padding: 0 0 5px;
+		width: 20px;
 	}
 }
 
 .bar-stable .button.button-clear {
+	color: $color-grey-variant;
 	font-size: 25px;
 	margin-top: -5px;
 }
@@ -85,6 +112,6 @@
 	display: block;
 	float: left;
 	height: 20px;
-	margin-left: 10px;
+	margin-right: 10px;
 	width: 20px;
 }

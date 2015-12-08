@@ -20,29 +20,29 @@
     <ion-content>
       <ion-list>
         <ion-item menu-close href="#/app/home">
-          <span class="btn btn-link icon-angle-right">Home</span>
+          <span class="btn btn-link icon-angle-right">{{ currentSet || 'Home' }}</span>
         </ion-item>
         <ion-item>
           <label for="total" ng-init="thisTotal = colorData.total">
-            <span>Total items</span>
             <input id="total" type="tel" ng-model="thisTotal">
+            <span>total items</span>
           </label>
           <button class="btn btn-primary icon-plus pull-right" ng-click="updateItems(thisTotal)">Load</button>
         </ion-item>
         <ion-item>
           <label>
-            <span>Items per row</span>
             <input type="tel" ng-model="colorData.itemsPerRow">
+            <span>items per row</span>
           </label>
         </ion-item>
         <ion-item>
           <label>
-            <span>Item spacing</span>
-            <input type="tel" ng-model="colorData.itemSpacing">px
+            <input type="tel" ng-model="colorData.itemSpacing">
+            <span>px item spacing</span>
           </label>
         </ion-item>
         <ion-item ng-click="showModal('Background','backgroundColor', null, true)">
-          <span class="pull-left">BG color</span> <span class="color-indicator" style="background-color:rgba({{colorData.backgroundColor.red}}, {{colorData.backgroundColor.green}}, {{colorData.backgroundColor.blue}}, {{colorData.backgroundColor.alpha}});"></span>
+          <span class="color-indicator" style="background-color:rgba({{colorData.backgroundColor.red}}, {{colorData.backgroundColor.green}}, {{colorData.backgroundColor.blue}}, {{colorData.backgroundColor.alpha}});"></span><span class="pull-left">BG color</span>
         </ion-item>
         <ion-item >
           <ion-toggle toggle-class="toggle-calm" ng-click="updateEditable()">Edit mode</ion-toggle>
@@ -50,6 +50,14 @@
         </ion-item>
         <ion-item menu-close href="#/app/results">
           <span class="btn btn-link icon-angle-right">Results</span>
+        </ion-item>
+
+        <ion-item ng-click="showModal2()">
+          <span class="btn btn-link icon-plus">Save current data</span>
+        </ion-item>
+
+        <ion-item menu-close href="#/app/load">
+          <span class="btn btn-link icon-angle-right">Load data</span>
         </ion-item>
 
       </ion-list>

@@ -3,6 +3,7 @@
 // --------------------------------------------------
 
 body {
+	color: $color-grey-variant;
 	font-weight: 300;
 }
 
@@ -17,4 +18,17 @@ h1 {
 
 .table-content {
 	padding: 20px;
+
+	.btn.btn-link {
+		font-size: 14px;
+	}
+}
+
+th {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.bar.bar-stable .title {
+	color: #286090;
 }
