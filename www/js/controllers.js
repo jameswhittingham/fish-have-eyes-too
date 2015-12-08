@@ -29,6 +29,19 @@ angular.module('starter.controllers', [])
     $rootScope.colorData.items = items;
   };
 
+  $scope.trackClick = function(trackIt, obj, ind) {
+    if(!trackIt) {
+      var count = $scope.colorData[obj][ind]['count'] || 0;
+      $scope.colorData[obj][ind]['count'] = count + 1;
+    }
+  }
+
+  $scope.getNumber = function(num){
+    return new Array(num);
+  }
+})
+
+.controller('NavCtrl', function($scope, $ionicModal, $timeout, $localstorage, $rootScope, $state, $window) {
   $scope.updateEditable = function() {
     $rootScope.editMode = !$rootScope.editMode;
   }
@@ -39,6 +52,7 @@ angular.module('starter.controllers', [])
   }).then(function(modal) {
     $scope.modal = modal;
   });
+
   // Create the modal that we will use later
   $ionicModal.fromTemplateUrl('templates/modal-2.html', {
     scope: $scope
@@ -63,20 +77,10 @@ angular.module('starter.controllers', [])
       $scope.modal.show();
     }
   };
+
   $scope.showModal2 = function() {
     $scope.modal2.show();
   };
-
-  $scope.trackClick = function(trackIt, obj, ind) {
-    if(!trackIt) {
-      var count = $scope.colorData[obj][ind]['count'] || 0;
-      $scope.colorData[obj][ind]['count'] = count + 1;
-    }
-  }
-
-  $scope.getNumber = function(num){
-    return new Array(num);
-  }
 
   $scope.saveColor = function() {
     var colorObj = $scope.editableObject,
@@ -112,6 +116,10 @@ angular.module('starter.controllers', [])
     $rootScope.currentSet = setName;
 
     $scope.modal2.hide();
+  }
+
+  $scope.clearData = function() {
+    $rootScope.clearData();
   }
 })
 

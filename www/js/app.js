@@ -21,13 +21,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   });
 
-  //Set patientdata global root variable
-  var retData = $localstorage.get('fishHaveEyesData', "");
-
-  //if (retData && retData != "null") {
-  //  $rootScope.colorData = JSON.parse(retData.toString());
-  //} else {
-    
+  $rootScope.clearData = function() {
     $rootScope.colorData = {
       total: 24,
       itemsPerRow:4,
@@ -39,12 +33,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     for (var i = 0; i < 24; i++) {
       var item = {id: i, red: getRand(255, 1), green: getRand(255, 1), blue: getRand(255, 1), alpha: getRand(100, 100), count: 0};
       $rootScope.colorData.items.push(item);
-    } 
-  //};
+    }
+    
+    $rootScope['currentSet'] = null;
+    $rootScope['currentInd'] = null;
+  } 
 
   function getRand(max, divider) {
     return (Math.round(Math.random()*max) + 1)/divider;
   }
+
+  $rootScope.clearData();
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -53,7 +52,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+    controller: 'NavCtrl'
   })
   .state('app.home', {
       url: '/home',
