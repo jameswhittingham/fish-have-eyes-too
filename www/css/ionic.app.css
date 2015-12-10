@@ -13671,7 +13671,7 @@ input[type="number"] {
   font-weight: bold;
   float: left;
   margin: -7px 0;
-  width: 30px; }
+  width: 40px; }
 
 label {
   float: left;
@@ -13801,5 +13801,5 @@ label {
   display: block;
   float: left;
   height: 20px;
-  margin-right: 10px;
+  margin-right: 20px;
   width: 20px; }
