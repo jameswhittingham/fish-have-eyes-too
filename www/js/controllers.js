@@ -10,25 +10,6 @@ angular.module('starter.controllers', [])
     return retVal + 'vh';
   }
 
-  $scope.updateItems = function(thisTotal) {
-    $rootScope.colorData['total'] = thisTotal;
-
-    var items = $rootScope.colorData.items,
-      total = $rootScope.colorData.total;
-
-    if (parseInt(total) <= items.length) {
-      items = items.slice(0, total);
-    } else {
-      var dif = parseInt(total) - items.length;
-      for (var i = 0; i < dif; i++) {
-        var item = {id: i, red: 255, green: 255, blue: 255, alpha: 1, count: 0};
-        items.push(item);
-      }
-    }
-
-    $rootScope.colorData.items = items;
-  };
-
   $scope.trackClick = function(trackIt, obj, ind) {
     if(!trackIt) {
       var count = $scope.colorData[obj][ind]['count'] || 0;
@@ -42,6 +23,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('NavCtrl', function($scope, $ionicModal, $timeout, $localstorage, $rootScope, $state, $window) {
+  $scope.thisTotal = $scope.colorData.total;
+
   $scope.updateEditable = function() {
     $rootScope.editMode = !$rootScope.editMode;
   }
@@ -121,6 +104,33 @@ angular.module('starter.controllers', [])
   $scope.clearData = function() {
     $rootScope.clearData();
   }
+
+  $scope.updateItems = function(thisTotal) {
+    $rootScope.colorData['total'] = thisTotal;
+
+    var items = $rootScope.colorData.items,
+      total = $rootScope.colorData.total;
+
+    if (parseInt(total) <= items.length) {
+      items = items.slice(0, total);
+    } else {
+      var dif = parseInt(total) - items.length;
+      for (var i = 0; i < dif; i++) {
+        var item = {id: i, red: 255, green: 255, blue: 255, alpha: 1, count: 0};
+        items.push(item);
+      }
+    }
+
+    $rootScope.colorData.items = items;
+  };
+
+
+  $scope.$on( "$ionicView.enter", function( scopes, states ) {
+    if( states.stateName == "app.home" ) {
+     $scope.thisTotal = $rootScope.thisTotal || 24;
+     $scope.$apply();
+    }
+  });
 })
 
 .controller('LoadCtrl', function($scope, $ionicModal, $timeout, $localstorage, $rootScope, $state, $window) {
@@ -134,7 +144,7 @@ angular.module('starter.controllers', [])
     $rootScope.colorData = $scope.loadData[ind].data;
     $rootScope.currentSet = $scope.loadData[ind].name;
     $rootScope.currentInd = $scope.loadData[ind].id;
-    //$state.go('app.home');
+    $rootScope.thisTotal = $rootScope.colorData.total;
   }
 
   $scope.deleteSet = function(ind) {
