@@ -46,6 +46,8 @@ angular.module('starter.controllers', [])
   $scope.closeModal = function() {
     $scope.modal.hide();
     $scope.modal2.hide();
+
+    $rootScope.setName = null;
   };
 
   $scope.showModal = function(title, colorObj, ind, show) {
@@ -62,6 +64,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.showModal2 = function() {
+    $rootScope.setName = $rootScope.currentSet;
     $scope.modal2.show();
   };
 
@@ -78,7 +81,9 @@ angular.module('starter.controllers', [])
 
   $scope.saveSet = function(setName) {
     var retData = $localstorage.get("fishHaveEyesData"),
-      id = 0;
+      id = 0,
+      ind = $rootScope.currentInd;
+
     if (retData) {
       colorDataArray = JSON.parse(retData);
       if (colorDataArray.length > 0) {
@@ -93,7 +98,12 @@ angular.module('starter.controllers', [])
       'name': setName, 
       'data': $rootScope.colorData
     }
-    colorDataArray.push(newObj);
+
+    if (ind >= 0) {
+      colorDataArray[ind] = newObj;
+    } else {
+      colorDataArray.push(newObj);
+    }
     $localstorage.set("fishHaveEyesData", colorDataArray);
 
     $rootScope.currentSet = setName;
@@ -133,18 +143,26 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('LoadCtrl', function($scope, $ionicModal, $timeout, $localstorage, $rootScope, $state, $window) {
-  var retData = $localstorage.get('fishHaveEyesData', "");
-
-  if (retData && retData != "null") {
-    $scope.loadData = JSON.parse(retData.toString());
+.controller('LoadCtrl', function($scope, $ionicModal, $timeout, $localstorage, $rootScope, $state, $window, $ionicSideMenuDelegate) {
+    
+  $rootScope.$watch("currentSet", function( newValue, oldValue ) {
+    initialize();
+  });
+  
+  function initialize() {
+    var retData = $localstorage.get('fishHaveEyesData', "");
+    if (retData && retData != "null") {
+      $scope.loadData = JSON.parse(retData.toString());
+    }
   }
+  initialize();
 
   $scope.loadSet = function(ind) {
     $rootScope.colorData = $scope.loadData[ind].data;
     $rootScope.currentSet = $scope.loadData[ind].name;
     $rootScope.currentInd = $scope.loadData[ind].id;
     $rootScope.thisTotal = $rootScope.colorData.total;
+    $ionicSideMenuDelegate.toggleLeft();
   }
 
   $scope.deleteSet = function(ind) {

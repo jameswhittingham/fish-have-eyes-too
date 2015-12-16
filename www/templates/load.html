@@ -10,10 +10,10 @@
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr ng-repeat="item in loadData | orderBy:'setName'">
+	      <tr ng-repeat="item in loadData track by $index | orderBy:'setName'">
 	      	<td><button class="btn btn-delete" ng-click="deleteSet($index)">-</button></td>
 	        <td>{{item.name}}</td>
-	        <td class="text-center"><button class="btn btn-link icon-angle-right" ng-click="loadSet($index)" menu-toggle="left">Load</button></td>
+	        <td class="text-center"><button class="btn btn-link icon-angle-right" ng-click="loadSet($index)">Load</button></td>
 	      </tr>
 	    </tbody>
 	  </table>
