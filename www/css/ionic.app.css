@@ -13535,6 +13535,13 @@ button.close {
 .item {
   color: #7D7D7D; }
 
+.page-container {
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  width: 100%; }
+
 body {
   color: #7D7D7D;
   font-weight: 300; }
@@ -13741,7 +13748,9 @@ label {
       font-size: 16px;
       padding: 5px 20px 7px; }
   .btn.btn-secondary {
+    border-radius: 0;
     height: 100%;
+    padding: 0;
     position: relative;
     width: 100%; }
     .btn.btn-secondary.editable:before {

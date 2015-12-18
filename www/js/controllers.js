@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
   $scope.getHeight = function(itemsOnRow, total){
     var rows = total/itemsOnRow,
       retVal = 100/Math.ceil(rows);
-    return retVal + 'vh';
+    return retVal + '%';
   }
 
   $scope.trackClick = function(trackIt, obj, ind) {
@@ -99,7 +99,7 @@ angular.module('starter.controllers', [])
       'data': $rootScope.colorData
     }
 
-    if (ind >= 0) {
+    if (ind != null && ind >= 0) {
       colorDataArray[ind] = newObj;
     } else {
       colorDataArray.push(newObj);

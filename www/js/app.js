@@ -26,7 +26,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     $rootScope.colorData = {
       total: 24,
       itemsPerRow:4,
-      itemSpacing: 10,
+      itemSpacingTopBottom: 10,
+      itemSpacingLeftRight: 10,
+      pageWidth: 100,
+      pageHeight: 100,
       items: [],
       backgroundColor: {id: i, red: 0, green: 0, blue: 0, alpha: 0.15}
     }

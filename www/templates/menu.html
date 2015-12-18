@@ -62,8 +62,26 @@
         </ion-item>
         <ion-item>
           <label>
-            <input type="tel" ng-model="colorData.itemSpacing">
-            <span>px item spacing</span>
+            <input type="tel" ng-model="colorData.itemSpacingTopBottom">
+            <span>px top/bottom item spacing</span>
+          </label>
+        </ion-item>
+        <ion-item>
+          <label>
+            <input type="tel" ng-model="colorData.itemSpacingLeftRight">
+            <span>px left/right item spacing</span>
+          </label>
+        </ion-item>
+        <ion-item>
+          <label>
+            <input type="tel" ng-model="colorData.pageWidth">
+            <span>% page width</span>
+          </label>
+        </ion-item>
+        <ion-item>
+          <label>
+            <input type="tel" ng-model="colorData.pageHeight">
+            <span>% page height</span>
           </label>
         </ion-item>
         <ion-item ng-click="showModal('Background','backgroundColor', null, true)">
